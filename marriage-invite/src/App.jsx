@@ -45,6 +45,8 @@ export default function App() {
               className="card form-card p-4 shadow-lg bg-white rounded"
               style={{ maxWidth: "420px", width: "100%" }}
             >
+              <br />
+
               <button
                 type="button"
                 className="btn-close ms-auto"
@@ -129,12 +131,21 @@ export default function App() {
           )}
         </>
       ) : (
-        <img
-          src="/1.png"
-          alt="After Submission"
-          className="img-fluid rounded shadow-lg"
-          style={{ maxWidth: "500px" }}
-        />
+        <>
+          <img
+            src="/1.png"
+            alt="After Submission"
+            className="img-fluid rounded shadow-lg"
+            style={{ maxWidth: "500px" }}
+          />
+          <a
+            href="/1.png"
+            download="Wedding-IV"
+            className="btn btn-outline-light mt-3"
+          >
+            Download Invitation 📩
+          </a>
+        </>
       )}
     </div>
   );
