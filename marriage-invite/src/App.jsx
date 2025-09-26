@@ -22,14 +22,14 @@ export default function App() {
     try {
       await fetch(url, {
         method: "POST",
-        mode: "no-cors", // ✅ bypasses CORS, no response
+        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       setResult("✅ Form submitted!");
       setShowForm(false);
-      setSubmitted(true); // show second image
+      setSubmitted(true);
     } catch (err) {
       console.error("Error:", err);
       setResult("❌ Submission failed!");
@@ -45,7 +45,6 @@ export default function App() {
               className="card form-card p-4 shadow-lg bg-white rounded"
               style={{ maxWidth: "420px", width: "100%" }}
             >
-              {/* Close button */}
               <button
                 type="button"
                 className="btn-close ms-auto"
@@ -122,9 +121,8 @@ export default function App() {
           )}
         </>
       ) : (
-        // ✅ Show second image after submit
         <img
-          src="1.png"
+          src="/1.png"
           alt="After Submission"
           className="img-fluid rounded shadow-lg"
           style={{ maxWidth: "500px" }}
