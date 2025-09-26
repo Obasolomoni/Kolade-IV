@@ -131,21 +131,25 @@ export default function App() {
           )}
         </>
       ) : (
-        <>
+        <div className="text-center">
+          {/* IV Image */}
           <img
             src="/1.png"
-            alt="After Submission"
-            className="img-fluid rounded shadow-lg"
-            style={{ maxWidth: "500px" }}
+            alt="Wedding Invitation"
+            className="img-fluid rounded shadow-lg mb-3"
+            style={{ maxWidth: "500px", display: "block", margin: "0 auto" }}
           />
+
+          {/* Download Button */}
           <a
             href="/1.png"
             download="Wedding-IV"
-            className="btn btn-outline-light mt-3"
+            className="btn btn-outline-light mt-2"
+            style={{ display: "inline-block" }}
           >
             Download Invitation 📩
           </a>
-        </>
+        </div>
       )}
     </div>
   );
