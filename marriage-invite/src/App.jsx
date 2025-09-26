@@ -53,51 +53,51 @@ export default function App() {
               ></button>
 
               <h4 className="text-center text-primary mb-3">
-                Submit Your Details
+                We’d Love to Have You With Us 💍
               </h4>
               <p className="text-center text-muted mb-4">
-                Fill the form below to continue
+                Kindly share your details to join our special day ✨
               </p>
 
               <form id="dataForm" onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
-                    Name
+                    Your Beautiful Name
                   </label>
                   <input
                     type="text"
                     name="name"
                     id="name"
                     className="form-control"
-                    placeholder="Enter your name"
+                    placeholder="Enter your full name"
                     required
                   />
                 </div>
 
                 <div className="mb-3">
                   <label htmlFor="phone" className="form-label">
-                    Phone
+                    Phone Number
                   </label>
                   <input
                     type="text"
                     name="phone"
                     id="phone"
                     className="form-control"
-                    placeholder="Enter your phone number"
+                    placeholder="We’ll keep you updated here"
                     required
                   />
                 </div>
 
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
-                    Email
+                    Email Address
                   </label>
                   <input
                     type="email"
                     name="email"
                     id="email"
                     className="form-control"
-                    placeholder="Enter your email"
+                    placeholder="Share your email with us"
                     required
                   />
                 </div>
@@ -112,12 +112,20 @@ export default function App() {
               </p>
             </div>
           ) : (
-            <button
-              className="btn btn-success btn-lg mt-4"
-              onClick={() => setShowForm(true)}
-            >
-              Celebrate With Us 🎉
-            </button>
+            <>
+              {/* 💖 Body text above the button */}
+              <p className="text-center text-light fs-5 mb-3">
+                A love story worth celebrating deserves the people who matter most. <br />
+                Be part of our joy as we say “I do.” 💖
+              </p>
+
+              <button
+                className="btn btn-success btn-lg mt-4"
+                onClick={() => setShowForm(true)}
+              >
+                Celebrate With Us 🎉
+              </button>
+            </>
           )}
         </>
       ) : (
