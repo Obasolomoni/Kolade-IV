@@ -116,7 +116,7 @@ export default function App() {
               className="btn btn-success btn-lg mt-4"
               onClick={() => setShowForm(true)}
             >
-              Continue to Registration
+              Celebrate With Us 🎉
             </button>
           )}
         </>
