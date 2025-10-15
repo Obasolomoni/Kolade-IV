@@ -1,17 +1,4 @@
 /* General body style */
-body {
-  background: linear-gradient(135deg, #4b79a1, #283e51);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-
-  /* ✅ fixed background image path */
-}
 
 /* Title */
 h2 {
