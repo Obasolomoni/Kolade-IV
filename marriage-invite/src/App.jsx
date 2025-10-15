@@ -106,7 +106,7 @@ export default function App() {
                 <h4 className="text-center text-primary mb-3">
                   We’d Love to Have You With Us 💍
                 </h4>
-                <p className="text-center text-muted mb-4">
+                <p className="text-center mb-4">
                   Kindly share your details to join our special day ✨
                 </p>
 
