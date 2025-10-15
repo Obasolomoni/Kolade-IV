@@ -61,7 +61,7 @@ export default function App() {
       <div
         style={{
           backgroundImage: `url(${bgImages[currentBg]})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           position: "fixed",
