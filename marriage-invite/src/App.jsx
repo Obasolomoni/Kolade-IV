@@ -64,6 +64,7 @@ export default function App() {
         justifyContent: "center",
         alignItems: "center",
         padding: "20px",
+        bbackgroundRepeat: no-repeat,
       }}
     >
       {!submitted ? (

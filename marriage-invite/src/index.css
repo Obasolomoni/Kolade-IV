@@ -11,9 +11,6 @@ body {
   flex-direction: column;
 
   /* ✅ fixed background image path */
-  background-image: url("/2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* Title */
