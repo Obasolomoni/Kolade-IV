@@ -12,11 +12,8 @@ export default function App() {
 
   // 🖼️ Add your background images (must be in the public folder)
   const bgImages = [
-    "/bg1.jpg",
-    "/bg2.jpg",
-    "/bg3.jpg",
-    "/bg4.jpg",
-    "/bg5.jpg",
+    "/1.png",
+    "/2.png",
   ];
 
   // 🎞️ Background slideshow effect
