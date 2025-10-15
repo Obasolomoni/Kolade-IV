@@ -1,13 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState("");
+  const [currentBg, setCurrentBg] = useState(0);
 
   const url =
     "https://script.google.com/macros/s/AKfycbz0tWZYRTZQim9COZs2-hdXgl9_qU6S2TZ3WMZxqtNXZ3CDt0y9I2Ond3YkPseKmumK/exec";
+
+  // 🖼️ Add your background images here
+  const bgImages = [
+    "/bg1.jpg",
+    "/bg2.jpg",
+    "/bg3.jpg",
+    "/bg4.jpg",
+    "/bg5.jpg",
+  ];
+
+  // 🎞️ Background slideshow effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % bgImages.length);
+    }, 5000); // change image every 5 seconds
+    return () => clearInterval(interval);
+  }, [bgImages.length]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +55,20 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${bgImages[currentBg]})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-image 1s ease-in-out",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "20px",
+      }}
+    >
       {!submitted ? (
         <>
           {showForm ? (
@@ -45,8 +76,6 @@ export default function App() {
               className="card form-card p-4 shadow-lg bg-white rounded"
               style={{ maxWidth: "420px", width: "100%" }}
             >
-              <br />
-
               <button
                 type="button"
                 className="btn-close ms-auto"
@@ -115,9 +144,9 @@ export default function App() {
             </div>
           ) : (
             <>
-              {/* 💖 Body text above the button */}
-              <p className="text-center text-light fs-5 mb-3">
-                A love story worth celebrating deserves the people who matter most. <br />
+              <p className="text-center text-light fs-5 mb-3 text-shadow">
+                A love story worth celebrating deserves the people who matter
+                most. <br />
                 Be part of our joy as we say “I do.” 💖
               </p>
 
@@ -132,7 +161,6 @@ export default function App() {
         </>
       ) : (
         <div className="text-center">
-          {/* IV Image */}
           <img
             src="/1.png"
             alt="Wedding Invitation"
@@ -140,7 +168,6 @@ export default function App() {
             style={{ maxWidth: "500px", display: "block", margin: "0 auto" }}
           />
 
-          {/* Download Button */}
           <a
             href="/1.png"
             download="Wedding-IV"
