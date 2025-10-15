@@ -24,7 +24,7 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % bgImages.length);
-    }, 5000); // change every 5 seconds
+    }, 2000); // change every 5 seconds
     return () => clearInterval(interval);
   }, [bgImages.length]);
 
