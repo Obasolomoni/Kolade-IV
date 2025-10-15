@@ -93,7 +93,7 @@ export default function App() {
           <>
             {showForm ? (
               <div
-                className="card form-card p-4 shadow-lg bg-white rounded"
+                className="card form-card p-4 bg-white rounded"
                 style={{ maxWidth: "420px", width: "100%" }}
               >
                 <button
