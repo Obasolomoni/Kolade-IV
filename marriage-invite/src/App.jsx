@@ -179,7 +179,7 @@ export default function App() {
         ) : (
           <div className="text-center">
             <img
-              src="/1.png"
+              src="/9.png"
               alt="Wedding Invitation"
               className="img-fluid rounded shadow-lg mb-3"
               style={{
@@ -189,7 +189,7 @@ export default function App() {
               }}
             />
             <a
-              href="/1.png"
+              href="/9.png"
               download="Wedding-IV"
               className="btn btn-outline-light mt-2"
               style={{ display: "inline-block" }}
