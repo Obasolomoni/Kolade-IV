@@ -59,7 +59,7 @@ export default function App() {
         style={{
           backgroundImage: `url(${bgImages[currentBg]})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
           position: "fixed",
           top: 0,
