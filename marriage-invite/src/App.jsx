@@ -10,18 +10,12 @@ export default function App() {
   const url =
     "https://script.google.com/macros/s/AKfycbz0tWZYRTZQim9COZs2-hdXgl9_qU6S2TZ3WMZxqtNXZ3CDt0y9I2Ond3YkPseKmumK/exec";
 
-  // 🖼️ Add your background images (must be in the public folder)
-  const bgImages = [
-    "/3.png",
-    "/5.png",
-    "/6.png",
-  ];
+  const bgImages = ["/3.png", "/5.png", "/6.png"];
 
-  // 🎞️ Background slideshow effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % bgImages.length);
-    }, 5000); // change every 5 seconds
+    }, 5000);
     return () => clearInterval(interval);
   }, [bgImages.length]);
 
@@ -43,162 +37,173 @@ export default function App() {
         body: JSON.stringify(data),
       });
 
-      setResult("✅ Form submitted!");
+      setResult("✅ You’re on the guest list!");
       setShowForm(false);
       setSubmitted(true);
     } catch (err) {
       console.error("Error:", err);
-      setResult("❌ Submission failed!");
+      setResult("❌ Something went wrong!");
     }
   };
 
   return (
     <div>
-      {/* 🔥 Full-screen background slideshow */}
+      {/* 🎞️ BACKGROUND */}
       <div
         style={{
           backgroundImage: `url(${bgImages[currentBg]})`,
           backgroundSize: "cover",
-          backgroundPosition: "center top",
-          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
           position: "fixed",
-          top: 0,
-          left: 0,
           width: "100%",
           height: "100vh",
-          zIndex: -1,
-          transition: "background-image 1s ease-in-out",
+          top: 0,
+          left: 0,
+          zIndex: -2,
+          transition: "opacity 1s ease-in-out",
         }}
-      ></div>
+      />
 
-      {/* 💬 Foreground content */}
+      {/* 🌑 DARK OVERLAY */}
       <div
         style={{
-          minHeight: "100vh",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "white",
-          textShadow: "1px 1px 5px rgba(0,0,0,0.6)",
-          padding: "20px",
-          textAlign: "center",
+          position: "fixed",
+          inset: 0,
+          background: "rgba(0,0,0,0.55)",
+          zIndex: -1,
         }}
+      />
+
+      {/* 💬 CONTENT */}
+      <div className="d-flex justify-content-center align-items-center text-center text-white"
+        style={{ minHeight: "100vh", padding: "20px" }}
       >
         {!submitted ? (
           <>
             {showForm ? (
               <div
-                className="card form-card p-4 bg-white rounded"
-                style={{ maxWidth: "420px", width: "100%" }}
+                className="p-4"
+                style={{
+                  maxWidth: "420px",
+                  width: "100%",
+                  backdropFilter: "blur(15px)",
+                  background: "rgba(255,255,255,0.1)",
+                  borderRadius: "15px",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  animation: "fadeIn 0.6s ease",
+                }}
               >
                 <button
-                  type="button"
-                  className="btn-close ms-auto"
-                  aria-label="Close"
+                  className="btn-close btn-close-white ms-auto"
                   onClick={() => setShowForm(false)}
                 ></button>
 
-                <h4 className="text-center text-primary mb-3">
-                  We’d Love to Have You With Us 💍
-                </h4>
-                <p className="text-center mb-4">
-                  Kindly share your details to join our special day ✨
+                <h3 className="fw-bold mb-3">
+                  Join Our Special Day 💍
+                </h3>
+
+                <p className="mb-4 text-light">
+                  Your presence means everything to us ✨
                 </p>
 
-                <form id="dataForm" onSubmit={handleSubmit}>
-                  <div className="mb-3">
-                    <label htmlFor="name" className="form-label">
-                      Your Beautiful Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      className="form-control"
-                      placeholder="Enter your full name"
-                      required
-                    />
-                  </div>
+                <form onSubmit={handleSubmit}>
+                  <input
+                    name="name"
+                    className="form-control mb-3"
+                    placeholder="Full Name"
+                    required
+                  />
 
-                  <div className="mb-3">
-                    <label htmlFor="phone" className="form-label">
-                      Phone Number
-                    </label>
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      className="form-control"
-                      placeholder="We’ll keep you updated here"
-                      required
-                    />
-                  </div>
+                  <input
+                    name="phone"
+                    className="form-control mb-3"
+                    placeholder="Phone Number"
+                    required
+                  />
 
-                  <div className="mb-3">
-                    <label htmlFor="email" className="form-label">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="form-control"
-                      placeholder="Share your email with us"
-                      required
-                    />
-                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control mb-3"
+                    placeholder="Email Address"
+                    required
+                  />
 
-                  <button type="submit" className="btn btn-primary w-100">
-                    Submit
+                  <button className="btn btn-success w-100 fw-bold">
+                    Submit 💌
                   </button>
                 </form>
 
-                <p id="result" className="mt-3 fw-bold text-center text-success">
-                  {result}
-                </p>
+                <p className="mt-3 text-success fw-bold">{result}</p>
               </div>
             ) : (
-              <>
-                <p className="fs-5 mb-3">
-                  A love story worth celebrating deserves the people who matter
-                  most. <br />
-                  Be part of our joy as we say “I do.” 💖
+              <div style={{ animation: "fadeInUp 1s ease" }}>
+                <h1 className="fw-bold mb-3">
+                  You're Invited 💖
+                </h1>
+
+                <p className="fs-5 mb-4">
+                  A beautiful beginning deserves beautiful people. <br />
+                  Come celebrate love with us ✨
                 </p>
 
                 <button
-                  className="btn btn-success btn-lg mt-4"
+                  className="btn btn-success btn-lg px-4"
                   onClick={() => setShowForm(true)}
+                  style={{
+                    transition: "all 0.3s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.target.style.transform = "scale(1.05)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.target.style.transform = "scale(1)")
+                  }
                 >
                   Celebrate With Us 🎉
                 </button>
-              </>
+              </div>
             )}
           </>
         ) : (
-          <div className="text-center">
+          <div style={{ animation: "fadeIn 1s ease" }}>
             <img
               src="/9.png"
-              alt="Wedding Invitation"
               className="img-fluid rounded shadow-lg mb-3"
-              style={{
-                maxWidth: "500px",
-                display: "block",
-                margin: "0 auto",
-              }}
+              style={{ maxWidth: "500px" }}
             />
+
             <a
               href="/9.png"
-              download="Wedding-IV"
-              className="btn btn-outline-light mt-2"
-              style={{ display: "inline-block" }}
+              download
+              className="btn btn-outline-light"
             >
               Download Invitation 📩
             </a>
           </div>
         )}
       </div>
+
+      {/* 🎬 ANIMATIONS */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0 }
+            to { opacity: 1 }
+          }
+
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(40px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }
