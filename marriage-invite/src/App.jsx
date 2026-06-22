@@ -57,7 +57,6 @@ export default function App() {
           position: "fixed",
           maxWidth: "100%",
           height: "auto",
-          display: "block",
           top: 0,
           left: 0,
           zIndex: -2,
